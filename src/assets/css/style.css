@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    /* list-style: none; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+
+.css-13cymwt-control {
+    box-shadow: 0px 0px 10px #00000029;
+    border-radius: 8px !important;
+    border-style: none !important;
+}
+
+
+.css-1jqq78o-placeholder {
+    font-size: 14px;
+    color: #707070;
+}
+.input-form {width:50%;display:flex;flex-direction:column;margin:0 0 20px;}
+input{color:#2E2E2E;box-sizing:border-box;font-size:14px;height:40px;padding:6px 12px;border:1px solid #00000029;box-shadow: 0px 0px 10px #00000029;letter-spacing: 0.4px;border-radius:6px;width:100%;}
+.description .enquiry-form .btn-submit {padding:0 20px;height:35px;background:#FE9603;border:1px solid #00000029;font-size:14px;color:#FFFFFF;border-radius:6px;cursor:pointer;}
+textarea{resize:none;height:80px;padding:6px 12px;font-size:14px;line-height:1.4;box-shadow:0px 0px 10px #00000029;border-radius:4px;box-sizing: border-box;;border:1px solid #00000029;width: 100%;}
+.error{color:#FF0000;font-size:12px;}
+
+textarea .has-input-error,
+input .has-input-error,
+select .has-input-error{border-color:#FF0000 !important;}
+textarea .has-input-error:focus-visible,
+input .has-input-error:focus-visible {outline-color:#170e0e !important;outline: auto;}
+.react-tel-input input.has-input-error {border:1px solid #FF0000 !important;}

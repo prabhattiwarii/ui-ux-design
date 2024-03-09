@@ -1,0 +1,126 @@
+{
+    "page": {
+        "posts": [
+            {
+                "id": 12,
+                "author": "Sameer",
+                "name": "Digital Marketing Tips for Real Estate",
+                "slug": "digital-marketing-tips-real-estate",
+                "description": "For real estate, digital marketing is quite a lot cost-friendly. By means of digital marketing tips for real estate, the...",
+                "thumbnail": "",
+                "created_at": "2021-10-09T10:22:27.000Z"
+            },
+            {
+                "id": 11,
+                "author": "Sameer",
+                "name": "Digital Marketing Tips for Startups",
+                "slug": "digital-marketing-tips-for-startups",
+                "description": "In case you are running a startup, the key to your growth is marketing of your business &ndash; and the way you set your...",
+                "thumbnail": "",
+                "created_at": "2021-10-05T20:50:30.000Z"
+            },
+            {
+                "id": 1,
+                "author": "Administration",
+                "name": "Digital Marketing Company in India",
+                "slug": "digital-marketing-company-india",
+                "description": "Best Digital Marketing Company  &ndash; Online marketing is a trend for today for all companies of different domains. In...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 2,
+                "author": "Administration",
+                "name": "Web Development Company in India",
+                "slug": "web-development-company-india",
+                "description": "Web Designing &amp; Web Development Company  - In today&rsquo;s world, having a website is an essential business tactic...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 3,
+                "author": "Administration",
+                "name": "SEO Company in India",
+                "slug": "seo-company-india",
+                "description": "SEO Company in India  &ndash; Online presence is essential to crab more clients and get a greater deal for your business...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 4,
+                "author": "Administration",
+                "name": "PPC Company in India",
+                "slug": "ppc-company-india",
+                "description": "PPC Advertising Services &ndash; Regius Technologies is a Leading PPCD Company that offers best PPC advertisement and ma...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 5,
+                "author": "Administration",
+                "name": "Social Media Marketing Company in India",
+                "slug": "social-media-marketing-company-india",
+                "description": "Social Media Marketing Service Company  &ndash; Billions of people are online today with Facebook having over 2 billion...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 6,
+                "author": "Administration",
+                "name": "Online Reputation Management Company in India",
+                "slug": "online-reputation-management-company-india",
+                "description": "Online Reputation Management Company  &ndash; With online business making its way, customers have made their way ensurin...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 7,
+                "author": "Administration",
+                "name": "Mobile App Development Company In Chandigarh",
+                "slug": "mobile-app-development-company-chandigarh",
+                "description": "Mobile App Development Company In Chandigarh &ndash; With 3.2 billion smartphone users online, has your own application...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 8,
+                "author": "Administration",
+                "name": "iPhone Application Development Company In Chandigarh",
+                "slug": "iphone-application-development-company-chandigarh",
+                "description": "iPhone App Development Company in Chandigarh &ndash; iPhone is the largest used smart phone with 700 million having sold...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 9,
+                "author": "Administration",
+                "name": "Android App Development Company in India",
+                "slug": "android-app-development-company",
+                "description": "Android App Development Company In India &ndash; 2.5 billion android smartphones users! It is expected to rise in coming...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 10,
+                "author": "Administration",
+                "name": "Laravel Development Company in Chandigarh",
+                "slug": "laravel-development-company-chandigarh",
+                "description": "Laravel App Development Company In Chandigarh &ndash; Regius Technologies is well website development company that has t...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            },
+            {
+                "id": 11,
+                "author": "Administration",
+                "name": "Laravel Development Company in Chandigarh",
+                "slug": "laravel-development-company-chandigarh",
+                "description": "Laravel App Development Company In Chandigarh &ndash; Regius Technologies is well website development company that has t...",
+                "thumbnail": "",
+                "created_at": "2019-12-27T07:18:43.000Z"
+            }
+        ],
+        "page": 1,
+        "lastPage": 1,
+        "total": 12
+    }
+}

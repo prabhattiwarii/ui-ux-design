@@ -1,0 +1,26 @@
+{
+  "careers": [
+    {
+      "id": 3,
+      "name": "Business Development Executive",
+      "location": "Panchkula, Haryana",
+      "salary": "₹80,000 to ₹6,00,000",
+      "job_type": "Part Time OR Full Time",
+      "expirence": "6 months to 5 years",
+      "industry": "IT",
+      "description": "<p>We are hiring for Online Bidder/BDE candidates on urgent basis</p>\r\n\r\n<h3>Responsibilities and Duties</h3>\r\n\r\n<ul>\r\n\t<li>Should have experience of upwork, guru, freelancer bidding.</li>\r\n\t<li>Must be able to write proposal, Followup and able to answer clients.</li>\r\n\t<li>Must be able to work on different technologies.</li>\r\n\t<li>Must have good communication and writing skills.</li>\r\n\t<li>Must be able to work in a team or independently.</li>\r\n\t<li>Should be comfortable in client interaction.</li>\r\n</ul>\r\n\r\n<h3>Benefits</h3>\r\n\r\n<ul>\r\n\t<li>5 Days working</li>\r\n\t<li>Good salary package for deserving candidates</li>\r\n\t<li>Good working environment</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>",
+      "education": "Any Graduation / MBA (Marketing)"
+    },
+    {
+      "id": 2,
+      "name": "Android Developer",
+      "location": "Panchkula, Haryana",
+      "salary": "₹240,000.00 to ₹420,000.00 / year",
+      "job_type": "Full Time",
+      "expirence": "Android development: 1 year (Preferred)",
+      "industry": "Software Development",
+      "description": "<p>We are looking for an Android developer responsible for the development and maintenance of applications aimed at a vast number of diverse Android devices. Your primary focus will be the development of Android applications and their integration with back-end services.</p>\r\n\r\n<h3>Requirements:</h3>\r\n\r\n<ul>\r\n\t<li>Strong knowledge of Android SDK, different versions of Android, and how to deal with different screen sizes.</li>\r\n\t<li>Familiarity with Restful APIs to connect Android applications to back-end services.</li>\r\n\t<li>Strong knowledge of Android UI design principles, patterns, and best practices.</li>\r\n\t<li>Experience with offline storage, threading, and performance tuning.</li>\r\n\t<li>Ability to design applications around natural user interfaces, such as touch.</li>\r\n\t<li>Knowledge of the open-source Android ecosystem and the libraries available for common tasks.</li>\r\n\t<li>Ability to understand business requirements and translate them into technical requirements.</li>\r\n\t<li>Familiarity with cloud message APIs and push notifications.</li>\r\n\t<li>A knack for bench-marking and optimisation.</li>\r\n\t<li>Understanding of Google&#39;s Android design principles and interface guidelines.</li>\r\n\t<li>Proficient understanding of code versioning tools.</li>\r\n</ul>",
+      "education": "Bachelor's (Preferred)"
+    }
+    ]
+}
