@@ -1,107 +1,133 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import arrow from "../../assets/images/arrow.svg";
 import Logo from "../../assets/images/gunoxwebsolutions-logo.svg";
-import colors from "../../constants/Colors";
-import constants from "../../constants/Constant";
-import { Link } from "react-router-dom";
+import color from "../../constants/Colors";
+import c from "../../constants/Constant";
+import { barIcon,crosIcon} from "../../helpers/Icon";
 
-const HeaderWrap = styled.div`
-  max-width: 100%;width: ${constants.width};margin: 0 auto;padding:20px;display: flex;justify-content: space-between;align-items: center;
-  & .logo-wrap {
-    & .logo-img{
-      width: 149.45px;height: 54.86px;
-    }
-  }
-
-  & .nav {
-    & .lists {
-      display: flex;column-gap: 30px;margin: 0;padding: 0;align-items: center;list-style: none;
-      & .list {
-        & .link {
-          font-size: 14px;color: ${colors.black};font-weight: 600;
-        }
-      }
-    }
-  }
-
-  & .btn-wrap {
-      text-transform: uppercase;color: ${colors.white};background-color: ${colors.orange};padding: 10px 8px;border-radius: 8px;font-weight:500;font-size: 12px;display:flex;gap:6px;box-shadow:5px 10px 15px #EBAC2F4D;
-      & .arrow {
-        width: 14px;height: 10px;
-      }
-  }
-
-  & .toggle-button {
-    display: none;color: ${colors.black};font-weight: 700;padding: 10px 23px;font-size: 14px;border-radius: 30px;transition: all 0.3s linear;
-    &:hover {
-      color: ${colors.orange};
-    }
-  }
-
-
-  @media(max-width:991px){
+const Wrap = styled.div`
+    max-width:${c.width};width:100%;margin:0 auto;padding:20px;display:flex;align-items:center;justify-content:space-between;column-gap:20px;box-sizing:border-box;
     & .logo-wrap {
-        & .logo-img{
-        width: 107px;
-        }
-  }
+        & .logo-img {width:170px;}
+    }
 
-  & .nav {
-    & .lists {
-      display: flex;column-gap: 20px;margin: 0;padding: 0;
-        & .list {
-            & .link {
-            font-size: 12px;color: ${colors.black};font-weight: 600;
+    & .nav {
+        & .lists {
+            list-style:none;margin:0;padding:0;display:flex;align-items:center;column-gap:30px;
+            & .list {
+                & .link {
+                    font-size:15px;color:${color.black};cursor:pointer;font-weight:600;transition:0.1s;
+                    &.active,
+                    &:hover{color:${color.orange}}
+                }
+            }
+
+            & .sublist {
+                position:relative;height:49px;display:flex;align-items:center;justify-content:start;
+                & .listeditem{
+                    display:none;flex-direction:column;overflow:hidden;position:absolute;width:max-content;top:40px;background:#faf6f1;border-radius:8px;
+                    & .link{
+                        font-size:14px;padding:7px 14px;
+                        &:hover{background:${color.orange};color:${color.white};}
+                    }
+                    &:hover{display:flex;z-index:1;}
+                }
+
+                &:hover {
+                    & .listeditem {
+                        display:flex;z-index:1;
+                    }
+                }
+            }
+        }
+
+        & .toggle-button {
+            display:none;background:${color.orange};height:35px;height:35px;border:none;border-radius:4px;transition:all 0.3s linear;
+            &:hover {color:${color.orange}}
+        }
+    }
+
+    @media (max-width:991px) {
+        & .nav {
+            & .lists {
+                display:flex;column-gap:20px;margin:0;padding:0;
+                & .list {
+                    & .link {font-size:14px;color:${color.black};font-weight:600;}
+                }
             }
         }
     }
-  }
 
-  & .btn-wrap {
-    padding: 10px 6px;border-radius: 8px;font-weight: 500;font-size: 11px;
-        & .arrow {
-            width: 18px;height: 14px;
+    @media (max-width:767px) {
+        & .logo-wrap{
+            width:160px;z-index:9;
+            & .logo-img{width:100%;}
         }
-  }
-  }
 
-  @media(max-width:767px){
-    & .nav .lists {
-      flex-direction: column;background-color: ${colors.white};position: absolute;top: 73px;left: 18px;right: 0;display: ${(props) => (props.isMobileNavOpen ? "flex" : "none")};z-index:3;
-      & .list {margin: 10px 0;}
+        & .nav {
+            & .lists {
+                flex-direction:column;align-items: start;row-gap:15px;box-shadow:${color.lightBlack} 0px 0px 5px 0px;border-radius:5px;padding: 20px;position:absolute;top:95px;right:20px;left:20px;z-index:999;background-color:${color.white};display:${(props) => (props.isMobileNavOpen ? "flex" :"none")};
+                & .list {
+                    & .link{font-size:14px;}
+                }
+                & .sublist{height:18px;}
+            }
+            & .toggle-button{display:flex;align-items:center;}
+        }
     }
-    & .btn-wrap{display: none;}
-    & .toggle-button {display: block;}
-  }
 `;
 
-const Header = () => {
+const Header = (page) => {
 
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     const handleToggleClick = () => {
         setIsMobileNavOpen(!isMobileNavOpen);
     };
+    const nav = [
+        {"id": 1,"name": "About Us","link": "about-us","type": "page"},
+        {"id": 2,"name": "Services","link": "services","type": "page",
+            "childs": [
+              {"id": 7,"name": "Web Development","link": "web-development-services","type": "category"},
+              {"id": 8,"name": "Ecommerce Solution","link": "ecommerce-solutions","type": "category"},
+              {"id": 9,"name": "Mobile App Development","link": "app-development-services","type": "category"},
+              {"id": 10,"name": "Web Designing","link": "web-designing-services","type": "category"},
+              {"id": 11,"name": "Digital Marketing","link": "digital-marketing-services","type": "category"}
+            ]
+          },
+        {"id": 3,"name": "Portfolio","link": "portfolio","type": "custom"},
+        {"id": 4,"name": "Contact Us","link": "contact-us","type": "page"},
+        {"id": 5,"name": "Careers","link": "careers","type": "custom"},
+        {"id": 6,"name": "Blog","link": "blog","type": "category"}
+    ]
   return (
-    <HeaderWrap isMobileNavOpen={isMobileNavOpen}>
-      <div className="logo-wrap">
-        <a href="/" className="logo"><img className="logo-img" src={Logo} alt="" /></a>
-      </div>
-      <div className="nav">
-        <ul className="lists">
-            <li className="list"><Link to="/about-us" className="link">About Us</Link></li>
-            <li className="list"><Link to="/service" className="link">Services</Link></li>
-            <li className="list"><Link to="/" className="link">Solutions</Link></li>
-            <li className="list"><Link to="/" className="link">Portfolio</Link></li>
-            <li className="list"><Link to="/blog" className="link">Blog</Link></li>
-            <li className="list"><Link to="/contact-us" className="link">Contact Us</Link></li>
-            <li className="list"><Link to="/" className="btn-wrap">Get a Free Consultation <span><img className="arrow" src={arrow} alt="" /></span></Link></li>
-        </ul>
-        <button className="toggle-button" onClick={handleToggleClick}>
-                {isMobileNavOpen ? "Close" : "Menu"}
-        </button>
-      </div>
-    </HeaderWrap>
+    <Wrap isMobileNavOpen={isMobileNavOpen}>
+        <div className="logo-wrap">
+            <a href={c.BASE_URL} className="link">
+                <img className="logo-img" src={Logo} alt={c.APP_NAME}/>
+            </a>
+        </div>
+        <div className="nav">
+            <ul className="lists">
+                {nav && nav.map((menuItem) => (
+                    <li key={menuItem.id} className={page === menuItem.childs ? "list" : "list sublist"}>
+                        {menuItem ? (
+                            <a href={`${c.BASE_URL}/${menuItem.link}`} className={page === menuItem.link ? "link active" : "link"}>{menuItem.name}</a>): ""
+                        }
+                        {menuItem.childs && menuItem.childs.length > 0 && (
+                            <div className="listeditem">
+                                {menuItem.childs.map((childItem) => ( 
+                                    <a href={`${c.BASE_URL}/${childItem.link}`} key={childItem.id} className={page === childItem.link ? "link active" : "link"}>{childItem.name}</a>
+                                ))}
+                            </div>
+                        )}
+                    </li>
+                ))}
+            </ul>
+            <button className="toggle-button" onClick={handleToggleClick}>
+                {isMobileNavOpen ? <>{crosIcon({width:22,height:22,fill:color.white})}</> : <>{barIcon({width:22,height:22,fill:color.white})}</>}
+            </button>
+        </div>
+    </Wrap>
   );
 };
 

@@ -1,112 +1,87 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import colors from "../../constants/Colors";
+import color from "../../constants/Colors";
 import c from "../../constants/Constant";
-import axios from "axios";
 
 
 const Wrap = styled.div`
-    width: 100%;max-width: ${c.width};margin: 0 auto;padding:40px 20px;display: flex;flex-direction: column;row-gap: 30px;
-  & .content-section {
+width:100%;max-width:${c.width};margin:0 auto;padding:40px 20px 20px;display:flex;flex-direction:column;row-gap:30px;
+& .content-section{
     text-align:center;
-    & .heading {
-        font-size: 32px;line-height:42px;font-weight: 600;color: ${colors.black};letter-spacing: 1.05px;margin:0 0 10px;
-      }
-    & .desc {
-        color: ${colors.lightBlack};
-        & p{
-          margin:0;
-        }
-      }
-  }
-  & .industry-section {
-    display: flex;flex-wrap: wrap;gap:30px;
-    & .work-card {
-      width: calc(33.33% - 20px);background: ${colors.white}; padding: 25px;box-shadow: 0px 3px 20px #00000029;position:relative;
-      &:before{
-          content:"";position:absolute;top:0;left:0;bottom:0;width:4px;height:100%;background:${colors.DarkOrange};
-        }
-      & .title {
-        font-size:14px;font-weight: 600;color:${colors.lightDark};
-      }
+    & .heading{font-size:32px;line-height:42px;font-weight:600;color:${color.black};letter-spacing:1.05px;margin:0 0 10px;}
+    & .desc{
+        & p{margin:0;color:${color.lightBlack};}
     }
-  }
-
-  @media (max-width: 991px){
-    & .industry-section {
-      gap:16px;
-      & .work-card{
-        width: calc(33.33% - 10.7px);padding:25px 15px;
-      }
+}
+& .industry-section{
+    display:flex;flex-wrap:wrap;gap:30px;
+    & .work-card{
+        width:calc(33.33% - 20px);background:${color.white};padding:25px;box-shadow:0px 3px 20px #00000029;position:relative;
+        &:before{content:"";position:absolute;top:0;left:0;bottom:0;width:4px;height:100%;background:${color.DarkOrange};}
+        & .title{font-size:14px;font-weight:600;color:${color.lightDark};}
     }
-  };
+}
 
-  @media (max-width: 767px){
+@media (max-width:991px){
     & .industry-section{
-      row-gap: 20px;
-      & .work-card{
-        width: calc(50% - 10px);padding:20px;
-        & .title {
-          font-size:14px;line-height:24px;
+        gap:16px;
+        & .work-card{width:calc(33.33% - 10.7px);padding:25px 15px;}
+    }
+}
+
+@media (max-width:767px){
+    padding:20px;
+    & .industry-section{
+        row-gap:20px;
+        & .work-card{
+            width:calc(50% - 10px);padding:20px;
+            & .title{font-size:14px;line-height:24px;}
         }
-      }
     }
     & .content-section{
-        & .heading{
-            font-size: 24px;
-        };
-        & .desc{
-            font-size: 15px;line-height: 25px;
-        }
+        & .heading{font-size:24px;line-height:34px;}
+        & .desc{font-size:16px;line-height:26px;}
     }
-  };
+}
 
 
-  @media (max-width: 479px){
+@media (max-width:479px){
     & .content-section{
-        & .heading{
-            font-size: 22px;
-        };
+        & .heading{font-size:20px;margin:0 0 5px;line-height:30px;}
+        & .desc{font-size:14px;}
     }
     & .industry-section{
-        justify-content: center;
-      & .work-card{
-        width: 310px;padding:15px;
-      }
+        justify-content:center;
+        & .work-card{width:310px;padding:15px;}
     }
-  }
+}
 `;
 
 const IndustryServe = () => {
-    const [industry, setIndustry] = useState({});
-    useEffect(()=>{
-      getIndustry();
-    },[])
-  
-    const getIndustry = () =>{
-      return axios.get(c.BASE_URL)
-      .then((res) =>{
-          if(res.status === 200){
-              const industries= res.data.industries;
-              setIndustry(industries);
-          }else {
-              console.error('Error:', res.statusText);
-            }
-          })
-          .catch((error) => {
-            console.error('Network Error:', error);
-          });
-    }
+    const industries = [
+          {"id": 1,"name": "Education and Human Resources"},
+          {"id": 2,"name": "Real Estate and Property"},
+          {"id": 3,"name": "Legal and Professional"},
+          {"id": 4,"name": "E-commerce and Retail"},
+          {"id": 5,"name": "Athletes and Artists"},
+          {"id": 6,"name": "Software and Hi-Tech"},
+          {"id": 7,"name": "Healthcare and Social Services"},
+          {"id": 8,"name": "Restaurants and Venues"},
+          {"id": 9,"name": "Corporate & Consulting"},
+          {"id": 10,"name": "Automotive & Industrial"},
+          {"id": 11,"name": "Non-Profits and Charity"},
+          {"id": 12,"name": "Start Ups"}
+        ]
     return (
         <Wrap>
             <div className="content-section">
-                <div className="heading">{industry.heading}</div>
-                <div className="desc" dangerouslySetInnerHTML={{__html:industry.description}}/>
+                <div className="heading">Industries We Serve</div>
+                <div className="desc">Sed porttitor hendrerit dui, in blandit eros volutpat et. Maecenas aliquet dictum leo in vestibulum. Aliquam a vestibulum neque, ac porta lectus. Vivamus non felis sit amet urna ultrices gravida</div>
             </div>
             <div className="industry-section">
-                {Array.isArray(industry.data) && industry.data.map((industry) => (
-                    <div key={industry.id} className="work-card">
-                        <div className="title">{industry.name}</div>
+                {industries.map((industrie) => (
+                    <div key={industrie.id} className="work-card">
+                        <div className="title">{industrie.name}</div>
                     </div>
                 ))}
             </div>

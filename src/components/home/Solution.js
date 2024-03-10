@@ -74,31 +74,12 @@ const SolutionWrap = styled.div`
 `;
 
 const Solution = () => {
-    const [about, setAbout] = useState({});
-    useEffect(()=>{
-        getAboutData();
-    },[]);
-    const getAboutData = () =>{
-        return axios.get(c.BASE_URL)
-        .then((res)=>{
-            if(res.status === 200){
-                const data = res.data.aboutData;
-                setAbout(data);
-            }else {
-                console.error('Error:', res.statusText);
-              }
-            })
-            .catch((error) => {
-              console.error('Network Error:', error);
-        });
-    }
-
     return (
         <SolutionWrap>
             <div className="image">
                 <img className="banner" src={image.banner2} alt="Banner" />
             </div>
-            <div className="content">
+            {/* <div className="content">
                 <div className="heading">
                     {about.heading}
                 </div>
@@ -106,7 +87,7 @@ const Solution = () => {
                 <div className="cta-button">
                     <Link to={about.buttonLink}>{about.buttonText}<span> <img className="arrow" src={arrow} alt="Arrow Icon" /></span></Link>
                 </div>
-            </div>
+            </div> */}
         </SolutionWrap>
     )
 }
