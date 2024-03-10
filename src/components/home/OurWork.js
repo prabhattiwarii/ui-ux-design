@@ -3,6 +3,7 @@ import styled from "styled-components";
 import color from "../../constants/Colors";
 import c from "../../constants/Constant";
 import {arrowIcon} from "../../helpers/Icon";
+import image from "../../assets/Images";
 
 const Wrap = styled.div`
 width:100%;max-width:${c.width};margin:0 auto;box-sizing:border-box;padding:40px 20px;display:flex;flex-direction:column;row-gap:30px;
@@ -84,18 +85,18 @@ width:100%;max-width:${c.width};margin:0 auto;box-sizing:border-box;padding:40px
 
 const OurWork = () => {
     const data= [
-        {"id": 21,"name": "Bosuns Locker Chandlery","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/bosuns.jpg"},
-        {"id": 19,"name": "Seo Service Shop","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/seoserviceshop.jpg"},
-        {"id": 18,"name": "Painting Bazar","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/paintingbazar.jpg"},
-        {"id": 17,"name": "Fetish and Fantasy","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/myfetishandfantasy.jpg"},
-        {"id": 16,"name": "Metafli","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/metafli.jpg"},
-        {"id": 15,"name": "Gymvitals","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/gymvital.jpg"},
-        {"id": 14,"name": "Fresh Froots","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/freshfroots.jpg"},
-        {"id": 13,"name": "Easyshoppers","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/easyshoppers.jpg"},
-        {"id": 12,"name": "Deals 4 Cases","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/dc.jpg"},
-        {"id": 11,"name": "Dailygreens","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/dailygreens.jpg"},
-        {"id": 10,"name": "Conjet","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/conjet.jpg"},
-        {"id": 9,"name": "Compare Smart Watches","thumbnail": "https://www.regiustechnologies.com/bucket/portfolio-thumbnails/csw.jpg"}
+        {"id": 21,"name": "Bosuns Locker Chandlery",thumbnail:image.gl1},
+        {"id": 19,"name": "Seo Service Shop",thumbnail:image.gl2},
+        {"id": 18,"name": "Painting Bazar",thumbnail:image.gl3},
+        {"id": 17,"name": "Fetish and Fantasy",thumbnail:image.gl4},
+        {"id": 16,"name": "Metafli",thumbnail:image.gl5},
+        {"id": 15,"name": "Gymvitals",thumbnail:image.gl6},
+        {"id": 14,"name": "Fresh Froots",thumbnail:image.gl7},
+        {"id": 13,"name": "Easyshoppers",thumbnail:image.gl8},
+        {"id": 12,"name": "Deals 4 Cases",thumbnail:image.gl9 },
+        {"id": 11,"name": "Dailygreens",thumbnail:image.gl10},
+        {"id": 10,"name": "Conjet",thumbnail:image.gl11},
+        {"id": 9,"name": "Compare Smart Watches",thumbnail:image.gl12}
       ];
     return (
         <Wrap>

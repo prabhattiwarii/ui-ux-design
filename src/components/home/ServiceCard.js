@@ -125,10 +125,10 @@ const ServiceCard = () => {
                         <SplideSlide key={service.id}>
                             <div className="service-card">
                                 {service.icon && (
-                                    <a href={`${c.BASE_URL}/${service.slug}`} className="icon">{(service.icon({fill:color.orange}))}</a>
+                                    <a href={`${c.BASE_URL}${service.slug}`} className="icon">{(service.icon({fill:color.orange}))}</a>
                                 )}
                                 {service.name && (
-                                    <a href={`${c.BASE_URL}/${service.slug}`} className="title">{service.name}</a>
+                                    <a href={`${c.BASE_URL}${service.slug}`} className="title">{service.name}</a>
                                 )}
                                 {service.description && (
                                     <div className="text" dangerouslySetInnerHTML={{ __html: service.description }} />

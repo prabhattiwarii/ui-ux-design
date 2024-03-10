@@ -5,9 +5,10 @@ import styled from "styled-components";
 import colors from '../constants/Colors';
 import {mapIcon,emailIcon,phoneIcon} from "../helpers/Icon";
 import c from "../constants/Constant";
+import Layout from '../components/layout/Layout';
 
 const ContactWrap = styled.div`
-    width:100%;max-width:${c.width};margin: 0px auto;box-sizing:border-box;padding: 0 20px;
+    width:100%;max-width:${c.width};margin: 0px auto;box-sizing:border-box;padding:0 20px;
         & .head-wrap{font-size:16px;color:${colors.lightDark};display:flex;justify-content:center;};
         & .contact-wrap{
             display:flex;gap:35px;
@@ -19,6 +20,7 @@ const ContactWrap = styled.div`
                     display:flex;flex-direction:column;row-gap:10px;
                     & .contact-wrap{
                         align-items:center;gap:15px;
+                        border-bottom: 1px solid ${colors.orange};padding: 20px;
                         & span{border:1px solid ${colors.orange};width:36px;height:36px;border-radius:100%;display:flex;align-items:center;justify-content:center;}
                         & .heading{
                             font-size:14px;color:${colors.lightDark};
@@ -38,7 +40,7 @@ const ContactWrap = styled.div`
                             & label{margin:0 0 5px;font-size:16px;color:${colors.black};letter-spacing:0.4px;}
                             & .has-input-error{border-color:red !important;}
                             & select{
-                                color:${colors.black};box-sizing:border-box;font-size:14px;height:40px;padding:6px 12px;border:1px solid ${colors.shadowBlack};box-shadow: 0px 0px 10px ${colors.shadowBlack};letter-spacing: 0.4px;border-radius:6px;width:100%;-webkit-appearance: none;-moz-appearance:none;text-indent: 1px;text-overflow: '';
+                                color:${colors.black};box-sizing:border-box;font-size:14px;height:40px;padding:6px 12px;border:1px solid #00000029;box-shadow: 0px 0px 10px #00000029;letter-spacing: 0.4px;border-radius:6px;width:100%;-webkit-appearance: none;-moz-appearance:none;text-indent: 1px;text-overflow: '';
                                 & option{color:${colors.black};box-sizing:border-box;font-size:14px;font-family:'Poppins';}
                             }
                         }
@@ -87,6 +89,8 @@ const ContactWrap = styled.div`
         & .contact-wrap{
             & .contact-info{
                 row-gap:4px !important;
+                & .contact-heading{font-size:20px !important;}
+                & .contact-text{font-size:15px !important;}
                 & .map{
                     margin:25px 0 0 !important;
                     & iframe{height:265px !important;}
@@ -107,7 +111,9 @@ const ContactWrap = styled.div`
                 }
             }
         }
+    }
 `;
+
 
 const Contact = () => {
 
@@ -193,8 +199,9 @@ const Contact = () => {
     }
 
     return (
+        <Layout>
         <ContactWrap>
-            <div className="contact-wrap">
+        <div className="contact-wrap">
                 <div className="contact-info">
                     <div className="contact-heading">Contact Info</div>
                     <p className="contact-text">Always Excited to Discuss Unique Solution For Business</p>
@@ -278,6 +285,7 @@ const Contact = () => {
                 </div>
             </div>
         </ContactWrap>
+        </Layout>
     )
 }
 
