@@ -6,9 +6,10 @@ import colors from '../constants/Colors';
 import {mapIcon,emailIcon,phoneIcon} from "../helpers/Icon";
 import c from "../constants/Constant";
 import Layout from '../components/layout/Layout';
+import BreadCrumbs from "../BreadCrumbs"
 
 const ContactWrap = styled.div`
-    width:100%;max-width:${c.width};margin: 0px auto;box-sizing:border-box;padding:0 20px;
+    width:100%;max-width:${c.width};margin: 0px auto;box-sizing:border-box;padding:20px;
         & .head-wrap{font-size:16px;color:${colors.lightDark};display:flex;justify-content:center;};
         & .contact-wrap{
             display:flex;gap:35px;
@@ -198,8 +199,13 @@ const Contact = () => {
         return true;
     }
 
+    const breadcrumbs = [
+        { name: "Home/", path: "/" },
+        { name: "Contact Us", path: "/contact"},
+    ];
     return (
         <Layout>
+        <BreadCrumbs crumbs={breadcrumbs}/>
         <ContactWrap>
         <div className="contact-wrap">
                 <div className="contact-info">

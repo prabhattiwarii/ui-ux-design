@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BreadCrumbs from "../BreadCrumbs";
 import Layout from "../components/layout/Layout";
 import styled from "styled-components";
@@ -133,31 +133,12 @@ const Service = () => {
         { name: "Home/", path: "/" },
         { name: "Services", path: "/services" },
     ];
-
-    const [servicesData, setServicesdata] =useState({});
-    useEffect(()=>{
-        getService();
-    },[]);
-
-    const getService = () =>{
-        return axios.get("api")
-        .then((res)=>{
-            if(res.status === 200){
-                const data = res.data.page;
-                setServicesdata(data);
-            }else {
-                console.error('Error:', res.statusText);
-            }
-        })
-        .catch((error) => {
-            console.error('Network Error:', error);
-        });
-    }
+    const services = []
     return (
         <Layout>
             <ServiceWrap>
                 <BreadCrumbs crumbs={breadcrumbs} />
-                <div className="service-section">
+                {/* <div className="service-section">
                     <div className="head" dangerouslySetInnerHTML={{__html:servicesData.description}}></div>
                     <div className="service">
                         {Array.isArray(servicesData.services) && servicesData.services.map((service)=>(
@@ -184,7 +165,7 @@ const Service = () => {
                     </div>
                 </div>
                 <IndustryServe/>
-                <Testimonial/>
+                <Testimonial/> */}
             </ServiceWrap>
         </Layout>
     );

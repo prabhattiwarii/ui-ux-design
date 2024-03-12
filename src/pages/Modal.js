@@ -3,53 +3,66 @@ import styled from 'styled-components';
 import {focusOnFeild,hasValidationError,validationError} from '../helpers/GlobalHelpers';
 import color from '../constants/Colors';
 import axios from 'axios';
+import { crosIcon } from '../helpers/Icon';
 
 
 const Wrapper = styled.div`
-    position: fixed;inset: 0px;z-index: 999;display: flex;justify-content: center;align-items: center;background:${color.bgLight};
-    & .back{position: absolute;inset: 0px;}
-    & .careerform-main{
-        background: ${color.white};z-index:9999;max-width: 800px;width: calc(100% - 40px);position: relative;border-radius: 17px;overflow: hidden;
-        & .form-head{
-            display: flex;justify-content: center;padding: 20px 40px 30px;position: relative;
-            & span{font-size: 22px;line-height: 25px;font-weight: 600;color:${color.black};}
-            & .cross{cursor: pointer;z-index: 1;width: 25px;height: 25px;display:flex;align-items: center;justify-content: center;border: none;border-radius: 20px;background: rgb(206, 25, 25);position: absolute;right: 13px;top: 18px;padding: 0px;}
-        }
-        & .body{
-            padding: 0px 25px 25px;display: flex;flex-direction: column;max-height:90vh;overflow: hidden auto;
-            & .form-group{
-                width: 100%;display: flex;flex: 1;column-gap: 20px;
-                & .input-form{
-                    width:100%;display: flex;flex-direction: column;margin: 0 0 20px;
-                    & .file-wrap{
-                        display: flex;align-items: center;justify-content: center;column-gap: 20px;min-height: 80px;border: 1px solid ${color.darkWhite};border-radius: 6px;
-                        & .upload-file{display: none;}
-                        & .upload-text{font-size: 16px;color:${color.black};}
-                        & .browse{
-                            padding:0 25px;height:35px;background:${color.black};color:white;border:none;cursor:pointer;border-radius:6px;transition:.2s;
-                            &:hover{background:${color.DarkOrange};color:${color.white};}
-                        }
+position:fixed;inset:0px;z-index:999;display:flex;justify-content:center;align-items:center;background: rgba(0, 0, 0, 0.17);
+& .careerform-main{
+    background:${color.white};z-index:999;max-width:800px;width:calc(100% - 40px);position:relative;border-radius:17px;overflow:hidden;
+    & .form-head{
+        display:flex;justify-content:center;padding:20px 40px 30px;position:relative;
+        & span{font-size:22px;line-height:25px;font-weight:600;color:${color.black};}
+        & .cross{cursor:pointer;z-index:1;width:25px;height:25px;display:flex;align-items:center;justify-content:center;border:none;border-radius:20px;background:rgb(206, 25, 25);position:absolute;right:13px;top:18px;padding:0px;}
+    }
+    & .body{
+        padding:0px 25px 25px;display:flex;flex-direction:column;max-height:90vh;overflow:hidden auto;
+        & .form-group{
+            width:100%;display:flex;flex:1;column-gap:20px;
+            & .input-form{
+                width:100%;display:flex;flex-direction:column;margin:0 0 20px;
+                & .limit{margin:0;font-size:14px;color:${color.lightBlack};}
+                & .file-wrap{
+                    display:flex;align-items:center;justify-content:center;column-gap:20px;min-height:80px;border:1px solid ${color.darkWhite};border-radius:6px;
+                    & .upload-file{display:none;}
+                    & .upload-text{font-size:16px;color:${color.lightBlack};}
+                    & .browse{
+                        padding:0 25px;height:35px;background:${color.black};color:white;border:none;cursor:pointer;border-radius:6px;transition:.2s;
+                        &:hover{background:${color.DarkOrange};color:${color.white};}
                     }
-                    & .has-input-error{border-color:red !important;}
                 }
+                & .has-input-error{border-color:red !important;}
             }
-            & .form-btn{
-                text-align:center;
-                & .apply-btn{
-                    padding:0 25px;height:35px;background:${color.black};color:white;border:none;cursor:pointer;border-radius:6px;transtion:.2s;
-                    &:hover{background:${color.DarkOrange};color:${color.white};}
-                }
+        }
+        & .form-btn{
+            text-align:center;
+            & .apply-btn{
+                padding:0 25px;height:35px;background:${color.black};color:white;border:none;cursor:pointer;border-radius:6px;transtion:.2s;
+                &:hover{background:${color.DarkOrange};color:${color.white};}
             }
-            & .modal{
-                position:fixed;inset:0px;z-index: 99999;display: flex;justify-content:center;align-items:center;
-                & .modal-content{
-                    background:green;color:${color.white};padding:20px;text-align:center;display:flex;align-items:center;border-radius:8px;
-                    & .close{cursor:pointer;height:17px;}
-                    & p{color:${color.white};margin:0;}
-                }
+        }
+        & .modal{
+            position:fixed;inset:0px;z-index:99999;display:flex;justify-content:center;align-items:center;
+            & .modal-content{
+                background:green;color:${color.white};padding:20px;text-align:center;display:flex;align-items:center;border-radius:8px;
+                & .close{cursor:pointer;height:17px;}
+                & p{color:${color.white};margin:0;}
             }
         }
     }
+}
+@media (max-width:479px){
+    & .form-head{
+        & span{font-size:18px !important;}
+    }
+    & .body{
+        padding:0px 25px 25px;display:flex;flex-direction:column;max-height:100vh;overflow:hidden auto;
+        & .form-group{display:flex;flex-direction:column;}
+        & .input-form{
+            & .upload-text{font-size:14px !important;}
+        }
+    }
+}
 `;
 const Modal = ({onCloseModal,career}) => {
     const [form, setForm] = useState({first_name:"",last_name:"",email:"",phone:"",city:"",state:"",qualification:"",resume:"",job_type:career.name});
@@ -183,7 +196,7 @@ const Modal = ({onCloseModal,career}) => {
                 <div className='careerform-main'>
                     <div className='form-head'>
                         <span>You are applying for {career.name}</span>
-                        <button className='cross' onClick={handleClose}>h</button>
+                        <button className='cross' onClick={handleClose}>{crosIcon({fill:color.white})}</button>
                     </div>
                     <div className="body">
                         <form onSubmit={handleSubmit} autoComplete='off'>
