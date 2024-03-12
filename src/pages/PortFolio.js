@@ -30,7 +30,7 @@ const Portfolio = () => {
         {name: "Portfolio", path:"/portfolio"},
     ];
     return (
-        <Layout>
+        <Layout page="portfolio">
             <BreadCrumbs breadcrumbs={breadcrumbs}/>
             <Wrapper>
             {/* <div>

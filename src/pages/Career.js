@@ -108,7 +108,7 @@ const Career = () => {
         ]
 
     return (
-        <Layout>
+        <Layout page="careers">
             <BreadCrumbs breadcrumbs={breadcrumbs}/>
             <Wrapper>
             <div className="head-wrap">

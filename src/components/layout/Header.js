@@ -77,27 +77,27 @@ const Wrap = styled.div`
     }
 `;
 
-const Header = (page) => {
+const Header = ({page}) => {
 
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     const handleToggleClick = () => {
         setIsMobileNavOpen(!isMobileNavOpen);
     };
     const nav = [
-        {"id": 1,"name": "About Us","link": "about-us","type": "page"},
-        {"id": 2,"name": "Services","link": "services","type": "page",
-            "childs": [
-              {"id": 7,"name": "Web Development","link": "web-development-services","type": "category"},
-              {"id": 8,"name": "Ecommerce Solution","link": "ecommerce-solutions","type": "category"},
-              {"id": 9,"name": "Mobile App Development","link": "app-development-services","type": "category"},
-              {"id": 10,"name": "Web Designing","link": "web-designing-services","type": "category"},
-              {"id": 11,"name": "Digital Marketing","link": "digital-marketing-services","type": "category"}
+        {id: 1,"name": "About Us",link: "about-us"},
+        {id: 2,"name": "Services",link: "services",
+            childs: [
+              {id: 7,"name": "Web Development",link: "web-development-services"},
+              {id: 8,"name": "Ecommerce Solution",link: "ecommerce-solutions"},
+              {id: 9,"name": "Mobile App Development",link: "app-development-services"},
+              {id: 10,"name": "Web Designing",link: "web-designing-services"},
+              {id: 11,"name": "Digital Marketing",link: "digital-marketing-services"}
             ]
           },
-        {"id": 3,"name": "Portfolio","link": "portfolio","type": "custom"},
-        {"id": 4,"name": "Contact Us","link": "contact-us","type": "page"},
-        {"id": 5,"name": "Careers","link": "careers","type": "custom"},
-        {"id": 6,"name": "Blog","link": "blog","type": "category"}
+        {id: 3,"name": "Portfolio",link: "portfolio",},
+        {id: 4,"name": "Contact Us",link: "contact-us"},
+        {id: 5,"name": "Careers",link: "careers",},
+        {id: 6,"name": "Blog",link: "blog"}
     ]
   return (
     <Wrap isMobileNavOpen={isMobileNavOpen}>
@@ -109,7 +109,7 @@ const Header = (page) => {
         <div className="nav">
             <ul className="lists">
                 {nav && nav.map((menuItem) => (
-                    <li key={menuItem.id} className={page === menuItem.childs ? "list" : "list sublist"}>
+                    <li key={menuItem.id} className={menuItem.childs ? "list sublist" : "list"}>
                         {menuItem ? (
                             <a href={`${c.BASE_URL}/${menuItem.link}`} className={page === menuItem.link ? "link active" : "link"}>{menuItem.name}</a>): ""
                         }

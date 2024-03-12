@@ -203,7 +203,7 @@ const Contact = () => {
         { name: "Contact Us", path: "/contact-us"},
     ];
     return (
-        <Layout>
+        <Layout page="contact-us">
         <BreadCrumbs breadcrumbs={breadcrumbs}/>
         <ContactWrap>
         <div className="contact-wrap">

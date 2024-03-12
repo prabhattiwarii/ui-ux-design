@@ -7,7 +7,6 @@ import OurWork from "../components/home/OurWork";
 import IndustryServe from "../components/home/IndustryServe";
 import Testimonial from "../components/home/Testimonial";
 import LatestBlog from "../components/home/LatestBlog";
-import Users from "../components/home/Users";
 import AboutUs from "../components/home/AboutUS";
 
 
@@ -22,7 +21,6 @@ const Home = () => {
       <IndustryServe/>
       <Testimonial/>
       <LatestBlog/>
-      {/* <Users/> */}
     </Layout>
   )
 }

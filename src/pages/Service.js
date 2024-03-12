@@ -136,7 +136,7 @@ const Service = () => {
         }
     ]
     return (
-        <Layout>
+        <Layout page="services">
             <BreadCrumbs breadcrumbs={breadcrumbs} />
             <ServiceWrap>
                 <div className="service-section">

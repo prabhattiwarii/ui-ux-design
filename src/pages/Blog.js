@@ -90,7 +90,7 @@ const Blog = () => {
     ];
 
     return (
-        <Layout>
+        <Layout page="blog">
             <BreadCrumbs breadcrumbs={breadcrumbs}/>
             <Wrap>
             <div className="blog-section">

@@ -200,10 +200,10 @@ const missionData = [
 
 const About = () => {
   const breadcrumbs = [
-    { name: "About Us", path: "/about"},
+    { name: "About Us", path: "/about-us"},
   ];
   return (
-    <Layout>
+    <Layout page="about-us">
       <BreadCrumbs breadcrumbs={breadcrumbs}/>
       <AboutWrap>
         <div className="about-section">
