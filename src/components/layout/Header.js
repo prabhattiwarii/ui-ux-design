@@ -111,12 +111,12 @@ const Header = (page) => {
                 {nav && nav.map((menuItem) => (
                     <li key={menuItem.id} className={page === menuItem.childs ? "list" : "list sublist"}>
                         {menuItem ? (
-                            <a href={`${c.BASE_URL}${menuItem.link}`} className={page === menuItem.link ? "link active" : "link"}>{menuItem.name}</a>): ""
+                            <a href={`${c.BASE_URL}/${menuItem.link}`} className={page === menuItem.link ? "link active" : "link"}>{menuItem.name}</a>): ""
                         }
                         {menuItem.childs && menuItem.childs.length > 0 && (
                             <div className="listeditem">
                                 {menuItem.childs.map((childItem) => ( 
-                                    <a href={`${c.BASE_URL}${childItem.link}`} key={childItem.id} className={page === childItem.link ? "link active" : "link"}>{childItem.name}</a>
+                                    <a href={`${c.BASE_URL}/${childItem.link}`} key={childItem.id} className={page === childItem.link ? "link active" : "link"}>{childItem.name}</a>
                                 ))}
                             </div>
                         )}

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import styled from "styled-components";
 import c from "../constants/Constant";
 import color from "../constants/Colors";
 import Layout from "../components/layout/Layout";
-import axios from "axios";
+import BreadCrumbs from "../BreadCrumbs";
 
 
 const Wrapper = styled.div`
@@ -25,30 +25,18 @@ const Wrapper = styled.div`
 `;
 
 const Portfolio = () => {
-    const [pageData, setPageData] = useState({});
     const [showList, setShowList] = useState(null);
-
-    useEffect(() => {
-        getData();
-    }, []);
-
-    const getData = async () => {
-        try {
-            const response = await axios.get("http://localhost:3000/page");
-            const data = response.data;
-            setPageData(data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
-
+    const breadcrumbs = [
+        {name: "Portfolio", path:"/portfolio"},
+    ];
     return (
         <Layout>
+            <BreadCrumbs breadcrumbs={breadcrumbs}/>
             <Wrapper>
-            <div>
+            {/* <div>
                 <div className="swap-btn">
-                    {pageData.categories &&
-                    pageData.categories.map((category) => (
+                    {categories &&
+                    categories.map((category) => (
                         <button key={category.slug} onClick={() => setShowList(category.slug)}
                         className={`btn ${showList === category.slug ? 'active' : ''}`}
                         >
@@ -57,11 +45,11 @@ const Portfolio = () => {
                     ))}
                 </div>
                 <ul className="lists">
-                    {showList !== null && pageData.categories.find((category) => category.slug === showList).childs.map((work) => (
+                    {showList !== null && categories.find((category) => category.slug === showList).childs.map((work) => (
                         <li className="list" key={work.slug}>{work.name}</li>
                     ))}
                 </ul>
-            </div>
+            </div> */}
             </Wrapper>
         </Layout>
     );

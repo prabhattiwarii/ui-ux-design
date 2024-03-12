@@ -7,7 +7,7 @@ const image ={
     blog2 : require("./images/Blog-Images/blog-img2.png"),
     blog3 : require("./images/Blog-Images/blog-img3.png"),
     blog4 : require("./images/Blog-Images/blog-img4.png"),
-    plceholder : require("./images/placeholder.jpg"),
+    plceholder : require("./images/GalleryImages/default.webp"),
     development : require("./images/GalleryImages/web-development.webp"),
     design : require("./images/GalleryImages/web-designing.webp"),
     app : require("./images/GalleryImages/mobile-app-development.webp"),
@@ -23,7 +23,11 @@ const image ={
     gl10 : require("./images/GalleryImages/gallery-image2.jpg"),
     gl11 : require("./images/GalleryImages/gallery-image1.jpg"),
     gl12 : require("./images/GalleryImages/gallery-image6.jpg"),
-    default : require("./images/GalleryImages/default.webp"),
+    service1 : require("./images/GalleryImages/web-development.webp"),
+    service2 : require("./images/GalleryImages/mobile-app-development.webp"),
+    service3 : require("./images/GalleryImages/web-designing.webp"),
+    service4 : require("./images/GalleryImages/digital-marketing.webp"),
+    default : require("./images/GalleryImages/default.webp")
 }
 
 export default image;

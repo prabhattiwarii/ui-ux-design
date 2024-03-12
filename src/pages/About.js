@@ -200,13 +200,12 @@ const missionData = [
 
 const About = () => {
   const breadcrumbs = [
-    { name: "Home/", path: "/" },
     { name: "About Us", path: "/about"},
   ];
   return (
     <Layout>
+      <BreadCrumbs breadcrumbs={breadcrumbs}/>
       <AboutWrap>
-      <BreadCrumbs crumbs={breadcrumbs}/>
         <div className="about-section">
           <h4 className="head">
             Whether you are looking for a website design and development firm

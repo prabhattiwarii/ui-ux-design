@@ -200,25 +200,24 @@ const Contact = () => {
     }
 
     const breadcrumbs = [
-        { name: "Home/", path: "/" },
-        { name: "Contact Us", path: "/contact"},
+        { name: "Contact Us", path: "/contact-us"},
     ];
     return (
         <Layout>
-        <BreadCrumbs crumbs={breadcrumbs}/>
+        <BreadCrumbs breadcrumbs={breadcrumbs}/>
         <ContactWrap>
         <div className="contact-wrap">
                 <div className="contact-info">
                     <div className="contact-heading">Contact Info</div>
                     <p className="contact-text">Always Excited to Discuss Unique Solution For Business</p>
                     <div className="contact-call">
-                        <a href="tel:7341111171" className="contact-wrap">
+                        <a href="tel:9301829416" className="contact-wrap">
                             <span>{phoneIcon({width:18,height:18,fill:colors.DarkOrange})}</span>
-                            <div className="heading"><div className="heading-detail">Phone</div>+91-7341111171</div>
+                            <div className="heading"><div className="heading-detail">Phone</div>+91-9301829416</div>
                         </a>
-                        <a href="mailto:info@regiustechnologies.com" className="contact-wrap">
+                        <a href="mailto:prabhattiwari9629@gmail.com" className="contact-wrap">
                             <span>{emailIcon({width:18,height:18,fill:colors.DarkOrange})}</span>
-                            <div className="heading"><div className="heading-detail">Email</div>info@regiustechnologies.com</div>
+                            <div className="heading"><div className="heading-detail">Email</div>prabhattiwari9629@gmail.com</div>
                         </a>
                         <a href="https://www.google.com/maps?q=SCO+40,2nd+Floor,Sector+11,Panchkula,Haryana,India" target="_blank" rel="noopener noreferrer" className="contact-wrap">
                             <span>{mapIcon({width:18,height:18,fill:colors.DarkOrange})}</span>

@@ -80,7 +80,6 @@ const Career = () => {
         setIsModalOpen(false);
     };
     const breadcrumbs = [
-        { name: "Home/", path: "/" },
         { name: "Career", path: "/careers"},
       ];
     const pageData =[
@@ -110,7 +109,7 @@ const Career = () => {
 
     return (
         <Layout>
-            <BreadCrumbs crumbs={breadcrumbs}/>
+            <BreadCrumbs breadcrumbs={breadcrumbs}/>
             <Wrapper>
             <div className="head-wrap">
                 <div className="heading">Current Openings</div>
