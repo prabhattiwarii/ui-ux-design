@@ -4,7 +4,8 @@ import {focusOnFeild,hasValidationError,validationError} from '../helpers/Global
 import color from '../constants/Colors';
 import axios from 'axios';
 import { crosIcon } from '../helpers/Icon';
-
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Wrapper = styled.div`
 position:fixed;inset:0px;z-index:999;display:flex;justify-content:center;align-items:center;background: rgba(0, 0, 0, 0.17);
@@ -66,6 +67,7 @@ position:fixed;inset:0px;z-index:999;display:flex;justify-content:center;align-i
 `;
 const Modal = ({onCloseModal,career}) => {
     const [form, setForm] = useState({first_name:"",last_name:"",email:"",phone:"",city:"",state:"",qualification:"",resume:"",job_type:career.name});
+    const toastOptions = {position:"bottom-center",autoClose:3000,hideProgressBar:true,closeOnClick:false,pauseOnHover:false,}
     const [isOpen, setIsOpen] = useState(true);
     const [errors, setErrors] = useState([]);
     const [character, setCharacter] = useState(0);
@@ -110,19 +112,30 @@ const Modal = ({onCloseModal,career}) => {
         e.preventDefault();
         if (validate()) {
             try {
-                const formData = new FormData();
-                for (const key in form) {
-                    key !== "resume" && formData.append(key, form[key] || "");
+                var formData = new FormData();
+                for(var key in form){
+                    if(key !=="resume"){
+                        formData.append(key,form[key] ? form[key] : "");
+                    }
+                }
+                if(form.resume){
+                    formData.append("resume",form.resume);
                 }
                 form.resume && formData.append("resume", form.resume);
-                
-                const response = await axios.post('http://localhost:3002/contact', formData);
-                console.log("API Response:", response.data);
-                } catch (error) {
-                console.error("API Error:", error);
+                const accessKey = "d83d8fa0-33be-4bbc-8f35-6aca855e5cb4";
+                const response = await axios.post("https://api.web3forms.com/submit", {formData, access_key: accessKey });
+                console.log(formData);
+                if(response.data.success){
+                    toast.success("form submitted successfully", toastOptions);
+                    setForm({first_name: "",last_name: "", email: "", phone: "", city: "",state:"",qualification:"",resume:"",job_type:""});
+                } else {
+                    toast.error("An error occurred during career form submission.", toastOptions);
                 }
+            } catch (error) {
+                toast.error('An error occurred during career form submission.',toastOptions);
             }
-        };
+        }
+    };
 
       const hasSameDigits = (phone) => {
         return /^(.)\1+$/.test(phone);
@@ -192,7 +205,6 @@ const Modal = ({onCloseModal,career}) => {
     return (
         isOpen && (
             <Wrapper>
-                <div className="back"></div>
                 <div className='careerform-main'>
                     <div className='form-head'>
                         <span>You are applying for {career.name}</span>
@@ -216,17 +228,17 @@ const Modal = ({onCloseModal,career}) => {
                                     {hasValidationError(errors, "email") ? (<div className="error">{validationError(errors, "email")}</div>) : null}
                                 </div>
                                 <div className="input-form">
-                                    <input className={hasValidationError(errors, "phone") ? "has-input-error" : ""} type="tel"  maxLength={10} placeholder="Phone Number" name="phone" value={form.phone} onChange={handleChange} onKeyPress={handleKeyPress}/>
+                                    <input className={hasValidationError(errors, "phone") ? "has-input-error" : ""} type="tel"  maxLength={10} placeholder="Phone Number" name="phone" value={form.phone} onChange={handleChange}  onKeyPress={handleKeyPress}/>
                                     {hasValidationError(errors, "phone") ? (<div className="error">{validationError(errors, "phone")}</div>) : null}
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="input-form">
-                                    <input className={hasValidationError(errors, "city") ? "has-input-error" : ""} type="text" placeholder="city" name="city" value={form.city} onChange={handleChange} />
+                                    <input className={hasValidationError(errors, "city") ? "has-input-error" : ""} type="text" placeholder="City" name="city" value={form.city} onChange={handleChange} />
                                     {hasValidationError(errors, "city") ? (<div className="error">{validationError(errors, "city")}</div>) : null}
                                 </div>
                                 <div className="input-form">
-                                    <input className={hasValidationError(errors, "state") ? "has-input-error" : ""} type="text" placeholder="state" name="state" value={form.state} onChange={handleChange} />
+                                    <input className={hasValidationError(errors, "state") ? "has-input-error" : ""} type="text" placeholder="State" name="state" value={form.state} onChange={handleChange} />
                                     {hasValidationError(errors, "state") ? (<div className="error">{validationError(errors, "state")}</div>) : null}
                                 </div>
                             </div>
@@ -240,9 +252,9 @@ const Modal = ({onCloseModal,career}) => {
                             <div className="form-group">
                                 <div className="input-form">
                                     <div className={`file-wrap ${hasValidationError(errors, "resume") ? "has-input-error" : ""}`}>
-                                        <input type="file" id="file-input" accept="image/*,.doc,.docx,.ppt,.pptx,.pdf" style={{display:'none'}}  name="resume" onChange={handleFileChange}/>
+                                        <input type="file" id="file-input" accept='image/*,.doc,.docx,.ppt,.pptx,.pdf' style={{display:'none'}} onChange={handleFileChange}/>
                                         {form.resume ? 
-                                            (<><span className="file-text">{form.resume.name}</span><button className="browse" type="button"  onClick={handleClick}>Change</button></>):
+                                            (<><span className="file-text">{form.resume.name}</span><button className="browse" type="button" onClick={handleClick}>Change</button></>):
                                             (<><span className="upload-text">Upload your resume</span><button className="browse" type="button" onClick={handleClick}>Browse</button></>)
                                         }
                                     </div>
@@ -250,11 +262,12 @@ const Modal = ({onCloseModal,career}) => {
                                 </div>
                             </div>
                             <div className='form-btn'>
-                                <button className='apply-btn' type='submit'>SUBMIT NOW</button>
+                                <button className='apply-btn'>SUBMIT NOW</button>
                             </div>
                         </form>
                     </div>
                 </div>
+                <ToastContainer/>
             </Wrapper>
         )
     )

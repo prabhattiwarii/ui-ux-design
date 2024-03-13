@@ -7,6 +7,8 @@ import {mapIcon,emailIcon,phoneIcon} from "../helpers/Icon";
 import c from "../constants/Constant";
 import Layout from '../components/layout/Layout';
 import BreadCrumbs from "../BreadCrumbs"
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactWrap = styled.div`
     width:100%;max-width:${c.width};margin: 0px auto;box-sizing:border-box;padding:20px;
@@ -118,7 +120,8 @@ const ContactWrap = styled.div`
 
 const Contact = () => {
 
-    const [form, setForm] = useState({ first_name: "", last_name: "", email: "", phone: "", message: "" })
+    const [form, setForm] = useState({ first_name: "", last_name: "", email: "", phone: "", message: "",interest:"",website:""})
+    const toastOptions = {position:"bottom-center",autoClose:3000,hideProgressBar:true,closeOnClick:false,pauseOnHover:false,}
     const [error, setErrors] = useState([]);
 
     const handleChange = (e) => {
@@ -130,9 +133,16 @@ const Contact = () => {
         e.preventDefault();
         if (validate()) {
             try {
-                const {data} = await axios.post("http://localhost:3002/careers",form)
+                const accessKey = "d83d8fa0-33be-4bbc-8f35-6aca855e5cb4";
+                const response = await axios.post("https://api.web3forms.com/submit", { ...form, access_key: accessKey });if(response.data.success){
+                toast.success("form submitted successfully", toastOptions);
+                setForm({first_name: "",last_name: "", email: "", phone: "", message: "", website:"",interest:""});
+                } else {
+                    toast.error("An error occurred during form submission.", toastOptions);
+                }
             } catch (error) {
                 console.log(error);
+                toast.error('An error occurred during form submission.',toastOptions);
             }
         }
     }
@@ -289,6 +299,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </ContactWrap>
         </Layout>
     )
