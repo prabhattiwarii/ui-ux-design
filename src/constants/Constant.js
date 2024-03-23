@@ -12,7 +12,7 @@ const c = {
     currentYear: new Date().getFullYear(),
     currentYearDate: getCurrentYear(),
     width: "1440px",
-    BASE_URL:"http://localhost:3000"
+    BASE_URL:"https://gunox-technology.vercel.app"
     // BASE_URL : "https://regiustechnologies.com/web/home-data"
     // BASE_URL : "http://192.168.1.3:2002/web/home-data"
 };
